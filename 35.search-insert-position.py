@@ -71,4 +71,8 @@ class Solution:
                 right = mid - 1
         return left
 
+    # internal optimized
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        return bisect.bisect_left(nums, target)
+
 # @lc code=end
