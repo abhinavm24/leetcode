@@ -55,5 +55,27 @@ class Solution:
             maxSum = max(maxSum, runningSum)
         return maxSum
 
+    # Divide and conqueror
+    def maxSubArray(self, nums: List[int]) -> int:
+        return self.helper(nums, 0, len(nums)-1)
+
+    def helper(self, nums, low, high):
+        if low > high:
+            return 0
+        if low == high:
+            return nums[low]
+        mid = low + (high-low)//2
+        x_left = self.helper(nums, low, mid)
+        x_right = self.helper(nums, mid+1, high)
+        lmax, rmax = float('-inf'), float('-inf')
+        lsum, rsum = 0, 0
+        for i in range(mid-1, low-1, -1):  # Important Insight in NlgN solutions
+            lsum = lsum + nums[i]
+            lmax = max(lmax, lsum)
+        for i in range(mid+1, high+1, 1):
+            rsum = rsum + nums[i]
+            rmax = max(rmax, rsum)
+        return max(x_left, x_right, max(0, lmax)+max(0, rmax)+nums[mid])
+
 
 # @lc code=end
