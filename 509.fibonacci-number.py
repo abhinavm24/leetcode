@@ -60,6 +60,7 @@
 
 # @lc code=start
 from functools import lru_cache
+from math import *
 
 
 class Solution:
@@ -71,5 +72,9 @@ class Solution:
             return 1
         else:
             return self.fib(N-1) + self.fib(N-2)
+
+    # Formula O(1)
+    def fib(self, N: int) -> int:
+        return round(pow((1 + sqrt(5)) / 2, N) / sqrt(5))
 
 # @lc code=end
