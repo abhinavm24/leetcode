@@ -68,5 +68,10 @@ class Solution:
         else:
             return self.uniquePaths(m, n-1) + self.uniquePaths(m-1, n)
 
+# n choose k
+
+
+def uniquePaths(self, m: int, n: int) -> int:
+    return math.comb(m + n - 2, m - 1)
 
 # @lc code=end
