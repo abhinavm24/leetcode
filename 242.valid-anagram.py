@@ -77,7 +77,11 @@ class Solution:
 
         # Your runtime beats 99.46 % of python3 submissions
         # Your memory usage beats 34.99 % of python3 submissions (14.6 MB)
-        return not any(s.count(x)!=t.count(x) for x in set(s+t))
+        # return not any(s.count(x)!=t.count(x) for x in set(s+t))
+
+
+        # nlogn, 1
+        # return sorted(s) == sorted(t)
         
 # @lc code=end
 
