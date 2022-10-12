@@ -1,4 +1,5 @@
 # @before-stub-for-debug-begin
+from re import L
 from python3problem217 import *
 from typing import *
 # @before-stub-for-debug-end
@@ -45,12 +46,21 @@ from typing import *
 # @lc code=start
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
+        # n^2, 1
         # for i in range(len(nums)):
         #     for j in range(i+1, len(nums)):
         #         if nums[i]==nums[j]:
         #             return True
         # return False
 
+        # nlogn, 1
+        # nums = sorted(nums)
+        # for i in range(1, len(nums)):
+        #     if nums[i-1] == nums[i]:
+        #         return True
+        # return False
+
+        # n, n
         seen = set()
         for num in nums:
             if num in seen:
