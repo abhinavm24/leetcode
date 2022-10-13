@@ -61,12 +61,15 @@ class Solution:
         # return False
 
         # n, n
-        seen = set()
-        for num in nums:
-            if num in seen:
-                return True
-            seen.add(num)
-        return False
+        # seen = set()
+        # for num in nums:
+        #     if num in seen:
+        #         return True
+        #     seen.add(num)
+        # return False
+
+        # n, n
+        return len(set(nums)) != len(nums)
         
 # @lc code=end
 
