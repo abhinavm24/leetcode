@@ -44,25 +44,23 @@
 
 # @lc code=start
 from collections import defaultdict
-from typing import Counter
 
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        # nlog(max size of string), 
-        hashMap = {}
-        for str in strs:
-            sortedStr = "".join(sorted(str))
-            hashMap[sortedStr] = hashMap.get(sortedStr, []) + [str]
-        
-        return hashMap.values()
-
-        # hashMap = collections.defaultdict(list)
-
+        # hashMap = defaultdict(list)
         # for str in strs:
         #     key = [0] * 26
         #     for chr in str:
         #         key[ord(chr) - ord("a")] += 1
         #     hashMap[tuple(key)].append(str)
+        # return hashMap.values()
+
+        
+        # nlog(max size of string), 
+        # hashMap = defaultdict(list)
+        # for str in strs:
+        #     sortedStr = "".join(sorted(str))
+        #     hashMap[sortedStr].append(str)
         # return hashMap.values()
 
         
