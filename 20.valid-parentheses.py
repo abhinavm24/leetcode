@@ -61,6 +61,9 @@
 
 class Solution:
     def isValid(self, s: str) -> bool:
+        if len(s) % 2: return False
+
+
         # # The stack to keep track of opening brackets.
         # stack = []
 
@@ -92,19 +95,37 @@ class Solution:
 
 
 
-        # if else written with continue and a delayed pop
-        Map = {")": "(", "]": "[", "}": "{"}
+        # # if else written with continue and a delayed pop
+        # Map = {")": "(", "]": "[", "}": "{"}
+        # stack = []
+
+        # for c in s:
+        #     if c not in Map:
+        #         stack.append(c)
+        #     else:
+        #         if not stack or stack[-1] != Map[c]:
+        #             return False
+        #         stack.pop()
+
+        # return not stack   
+        # 
+        # 
+        # # Create a pair of opening and closing parrenthesis...
+        opcl = dict(('()', '[]', '{}'))
+        # Create stack data structure...
         stack = []
-
-        for c in s:
-            if c not in Map:
-                stack.append(c)
-                continue
-            if not stack or stack[-1] != Map[c]:
+        # Traverse each charater in input string...
+        for idx in s:
+            # If open parentheses are present, append it to stack...
+            if idx in '([{':
+                stack.append(idx)
+            # If the character is closing parentheses, check that the same type opening parentheses is being pushed to the stack or not...
+            # If not, we need to return false...
+            elif len(stack) == 0 or idx != opcl[stack.pop()]:
                 return False
-            stack.pop()
-
-        return not stack       
+        # At last, we check if the stack is empty or not...
+        # If the stack is empty it means every opened parenthesis is being closed and we can return true, otherwise we return false...
+        return len(stack) == 0   
 
         
 # @lc code=end
